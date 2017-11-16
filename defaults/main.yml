@@ -45,3 +45,5 @@ postfix_config_mode: "0664"
 postfix: {}
 postfix_packages: {}
 postfix_defaults: {}
+
+postfix_extra_options: {}
