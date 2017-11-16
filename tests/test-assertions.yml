@@ -1,0 +1,12 @@
+---
+- hosts: localhost
+  remote_user: root
+  
+  vars:
+    postfix:
+      relayhost: mail.example.com
+    postfix_extra_options: |
+        other_option = TEST
+    
+  roles:
+    - role_under_test
