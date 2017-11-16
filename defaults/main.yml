@@ -33,7 +33,6 @@ postfix_os_supported: no
 # doing.
 #
 postfix_service: "postfix"
-postfix_aliases_file: /etc/aliases
 postfix_configuration_file: /etc/postfix/main.cf
 postfix_config_owner: "root"
 postfix_config_group: "root"

@@ -36,7 +36,7 @@
 
 - name: POSTFIX | Configuration
   template:
-    src: "postfix.conf.j2"
+    src: "main.cf.j2"
     dest: "{{ postfix_configuration_file }}"
     owner: "{{ postfix_config_owner }}"
     group: "{{ postfix_config_group }}"
