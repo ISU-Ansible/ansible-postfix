@@ -1,5 +1,6 @@
 ---
 - hosts: localhost
   remote_user: root
+  
   roles:
-    - postfix
+    - role_under_test

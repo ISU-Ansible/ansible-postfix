@@ -19,3 +19,40 @@
     that: postfix_os_supported == True
   tags:
     - postfix
+
+- name: POSTFIX | Set facts for postfix_manage_service and postfix_allow_restart
+  set_fact:
+    postfix_manage_service: "{{ false if ansible_virtualization_type == 'docker' else true }}"
+    postfix_allow_restart: "{{ false if ansible_virtualization_type == 'docker' else true }}"
+
+- name: POSTFIX | installation
+  package:
+    name: "{{ item }}"
+    state: installed
+  with_items:
+    - "{{ postfix_packages }}"
+  tags:
+    - postfix
+
+- name: POSTFIX | Configuration
+  template:
+    src: "postfix.conf.j2"
+    dest: "{{ postfix_configuration_file }}"
+    owner: "{{ postfix_config_owner }}"
+    group: "{{ postfix_config_group }}"
+    mode: "{{ postfix_config_mode }}"
+  notify:
+    - Restart postfix
+
+- name: POSTFIX | Service configuration
+  service:
+    name: "{{ postfix_service }}"
+    state: started
+    enabled: true
+  when: postfix_manage_service
+
+- name: POSTFIX | Register that the postfix role has run
+  set_fact: postfix_has_run=true
+  when: postfix_has_run is not defined
+  tags:
+    - postfix

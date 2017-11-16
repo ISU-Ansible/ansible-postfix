@@ -3,6 +3,7 @@
   service:
     name: "{{ postfix_service }}"
     state: restarted
+  when: postfix_allow_restart
 
 - name: Update aliases
   command: /usr/bin/newaliases
