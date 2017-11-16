@@ -1,38 +1,91 @@
-Role Name
-=========
+Postfix
+=======
+An ansible role to install, configure, and maintain the postfix installation for Red Hat Enterprise Linux and Fedora
 
-A brief description of the role goes here.
 
-Requirements
-------------
+Postfix Requirements
+--------------------
+Supported Operating Systems:
+  - Red Hat Enterprise Linux
+  - CentOS
+  - Fedora
 
-Any pre-requisites that may not be covered by Ansible itself or the role should be mentioned here. For instance, if the role uses the EC2 module, it may be a good idea to mention in this section that the boto package is required.
+We will accept pull requests to add in Debian, or Debian variants.
 
-Role Variables
---------------
+Variables
+---------
+* postfix: {}
+* postfix_extra_options: {}
 
-A description of the settable variables for this role should go here, including any variables that are in defaults/main.yml, vars/main.yml, and any variables that can/should be set via parameters to the role. Any variables that are read from other roles and/or the global scope (ie. hostvars, group vars, etc.) should be mentioned here as well.
+**Postfix Variables**
+The following are appropriate keys for the postfix variable. Any postfix options not defined below should be placed into the **postfix_extra_options** variable for insertion into the configuraiton file.
+
+* soft_bounce
+* queue_directory
+* command_directory
+* daemon_directory
+* data_directory
+* mail_owner
+* default_privs
+* myhostname
+* mydomain
+* myorigin
+* inet_interfaces
+* inet_protocols
+* proxy_interfaces
+* mydestination
+* local_recipient_maps
+* unknown_local_recipient_reject_code
+* mynetworks_style
+* mynetworks
+* relay_domains
+* relayhost
+* relay_recipient_maps
+* in_flow_delay
+* alias_maps
+* alias_database
+* recipient_delimiter
+* home_mailbox
+* mail_spool_directory
+* mailbox_command
+* mailbox_transport
+* fallback_transport
+* luser_relay
+* header_checks
+* fast_flush_domains
+* smtpd_banner
+* local_destination_concurrency_limit
+* default_destination_concurrency_limit
+* debug_peer_level
+* debug_peer_list
+* debugger_command
+* sendmail_path
+* newaliases_path
+* mailq_path
+* setgid_group
+* html_directory
+* manpage_directory
+* sample_directory
+* readme_directory
 
 Dependencies
 ------------
-
-A list of other roles hosted on Galaxy should go here, plus any details in regards to parameters that may need to be set for other roles, or variables that are used from other roles.
+No dependencies
 
 Example Playbook
 ----------------
 
-Including an example of how to use your role (for instance, with variables passed in as parameters) is always nice for users too:
-
     - hosts: servers
+      vars:
+        postfix:
+          relayhost: www.example.com
       roles:
-         - { role: username.rolename, x: 42 }
+         - { role: ISU-Ansible.postfix }
 
 License
 -------
-
-BSD
+GPLv2
 
 Author Information
 ------------------
-
-An optional section for the role authors to include contact information, or a website (HTML is not allowed).
+Barry Britt <bbritt@iastate.edu>
