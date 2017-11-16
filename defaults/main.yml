@@ -1,0 +1,48 @@
+---
+#
+# This variable enables postfix. By default, it is set to true. If you are
+# running this role, you probably want it to be installed. If not, then you
+# can override this variable
+#
+postfix_enabled: true
+
+#
+# Check for virtualization types. If we're virtualized (mainly testing), then
+# don't try to manage or reload the service
+#
+postfix_manage_service: ""
+postfix_allow_restart: ""
+
+#
+# Should we skip the defaults provided by the operating system? This should
+# typically be set to false. If you are generating a completely independent
+# configuration file, then you should probably set this to try and override
+# the postfix variable below.
+#
+postfix_skip_defaults: false
+
+#
+# By default, we set the os_supported variable to "no". This way, we can
+# override it in the vars defaults files for any OS that we can support with
+# this role.
+#
+postfix_os_supported: no
+
+#
+# Base Configuration options. Do not change unless you know what you're 
+# doing.
+#
+postfix_service: "postfix"
+postfix_aliases_file: /etc/aliases
+postfix_configuration_file: /etc/postfix/main.cf
+postfix_config_owner: "root"
+postfix_config_group: "root"
+postfix_config_mode: "0664"
+
+#
+# Empty dictionaries to avoid all errors. These will be filled with our 
+# configuration options
+#
+postfix: {}
+postfix_packages: {}
+postfix_defaults: {}

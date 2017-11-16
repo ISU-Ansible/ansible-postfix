@@ -1,0 +1,9 @@
+---
+- name: Restart postfix
+  service:
+    name: "{{ postfix_service }}"
+    state: restarted
+
+- name: Update aliases
+  command: /usr/bin/newaliases
+
