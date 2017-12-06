@@ -46,4 +46,4 @@ postfix: {}
 postfix_packages: {}
 postfix_defaults: {}
 
-postfix_extra_options: {}
+postfix_extra_options: ""
