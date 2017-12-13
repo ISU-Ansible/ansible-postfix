@@ -36,7 +36,7 @@ postfix_service: "postfix"
 postfix_configuration_file: /etc/postfix/main.cf
 postfix_config_owner: "root"
 postfix_config_group: "root"
-postfix_config_mode: "0664"
+postfix_config_mode: "0644"
 
 #
 # Empty dictionaries to avoid all errors. These will be filled with our 
