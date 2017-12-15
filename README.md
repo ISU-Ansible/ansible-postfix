@@ -18,7 +18,7 @@ Variables
 * postfix_extra_options: {}
 
 **Postfix Variables**
-The following are appropriate keys for the postfix variable. Any postfix options not defined below should be placed into the **postfix_extra_options** variable for insertion into the configuraiton file.
+The following are appropriate keys for the postfix variable. Any postfix options not defined below should be placed into the **postfix_extra_options** variable for insertion into the configuration file.
 
 * soft_bounce
 * queue_directory
